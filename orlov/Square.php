@@ -13,6 +13,7 @@ class Square extends Linear implements \core\EquationInterface{
 		if($a == 0){
 		   return array($this->ur($b,$c));
 		}
+        Log::log("Equation is quadratic");
 		$dir = sqrt($this->dir($a, $b, $c));
 		if ($dir > 0) {				
 			$x = (-1*$b + ($dir))/(2*$a);
