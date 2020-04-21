@@ -7,7 +7,12 @@ class Log extends \core\LogAbstract implements \core\LogInterface {
 	}
 
 	public function _write() {
-		foreach($this->log as $val) {
+		$d = new \DateTime();
+		if (!is_dir(__DIR__ . "/../Log/")) mkdir (__DIR__ . "/../Log/");
+		$name=__DIR__ . "/../Log/".$d->format("d.m.Y_H.i.s.u").".log";
+		file_put_contents($name, implode("\n\r", $this->log) . "\n\r");	
+        
+        foreach($this->log as $val) {
 			echo $val . "\n";
 		}
 	}
